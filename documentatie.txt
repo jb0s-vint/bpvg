@@ -1,0 +1,83 @@
+~~ 19 April
+Milestone 0: Voorbereiding
+Ik heb een GitHub repository aangemaakt voor het project met de Unity .gitignore.
+Ik git clone deze met GitHub Desktop want dat is het makkelijkste.
+Dan maak ik het Unity-project: bpvg, dat is kort voor basis programmeren van games.
+Ik begin nu aan de GDD.
+Dit concludeert Milestone 0.
+
+
+~Milestone 1: Boilerplate
+Ten eerste maak ik een Third Person Camera script om te kunnen rondkijken.
+Daarna maak ik een Character Control Script om de speler te laten rondlopen / rennen.
+
+Ik heb daarna een modulair systeem gebouwd om "Stages" te laden.
+Hiermee kan ik allerlij soort levels hebben zonder heel veel scenes met dezelfde GameObjects te hebben.
+
+Daarna heb ik een simpel prototype menu gemaakt waarmee je in een Stage kon laden.
+Dit concludeert Milestone 1.
+
+
+~~ 20 april
+~Milestone 2: Guards en AI
+Nu ga ik beginnen aan de Guard AI. Ik maak gebruik van een State Machine om alle "behaviors" op te splitsen in hun eigen classes.
+Dit maakt het veel overzichtelijker om mee te werken zelfs met hele complexe AI.
+Voor nu, lopen ze ergens heen, staan ze even stil en lopen ze ergens anders heen.
+
+Ik vond de "vibe" in de stages een beetje raar dus ik heb besloten om het nacht te maken.
+Dan hebben de Guards natuurlijk zaklampen nodig, dus die hebben ze nu.
+
+Nu ga ik de Guards "visie" geven, met gebruik van raycasts en wat rekenformules.
+Als de speler in de buurt van een guard is, niet achter de guard staat en een raycast van de guard naar de speler raakt geen muren, dan ziet de guard de speler.
+De guard rent dan op de speler af. Als de speler de guard afschudt, dan gaat de guard terug naar zijn patrol.
+
+Nu ga ik de "Orbs" maken die verzameld moeten worden. Voor nu zijn het gewoon zwevende spheres.
+Wanneer je in een trigger stapt dan gaat de score omhoog. Wanneer alle Orbs zijn verzameld, win je.
+Dit concludeert Milestone 2.
+
+
+~Milestone 3: Difficulty scaling
+Als de speler een guard afschudt, gaat nu zijn "Awareness" omhoog.
+Zodra de awareness omhoog gaat bij een guard, is de kans groter dat the guard jouw richting in loopt. Dus doe voorzichtig.
+
+Wanneer je een Orb verzameld, gaat de Awareness van alle guards 10% omhoog.
+
+Nu ga ik wat meer stages maken die steeds moeilijker worden.
+Dit concludeert Milestone 3.
+
+
+~Milestone 4: Footsteps & Win/Lose conditions
+Ik ga nu Guards in de buurt van de speler laten checken of de speler aan het rennen is.
+Als de speler aan het rennen is, dan maakt hij veel geluid en gaat de guard op dat geluid af.
+Ook gaat de Awareness 5% omhoog als een guard de speler hoort.
+
+~~ 21 april
+Ik heb een Win en Lose conditie toegevoegd aan de game. Nu kan je winnen als je alle orbs hebt verzameld, en wanneer je gevangen wordt verlies je.
+Dit concludeert Milestone 4.
+
+
+~Milestone 5: Final Polishing, Audio and Particles
+We hebben nu een game. Je kan winnen en verliezen. Nu is het tijd om de game te polishen, mooi te maken, wat audio en particle effects toe te voegen.
+
+Ten eerste voeg ik wat muziek toe. Hierdoor voelt de game meteen al veel minder leeg.
+Ik heb daarna voetstap en "alert" sounds toegevoegd. De "alert" sound speelt af wanneer de Guard je gezien heeft and achter je aan rent.
+Tot slot voeg ik een ? particle toe wanneer een Guard je hoort en een ! particle wanneer een Guard je ziet. Hierdoor heb je een veel betere indicatie van welke Guard je hoort of ziet.
+
+Ik besluit dat de actie "lopen" moet worden vervangen met "joggen". Als de guards je horen wanneer je rent, is het verstandig om zo min mogelijk te rennen, maar lopen is veelste traag en vervelend.
+Ik vind ook dat het veel te makkelijk is om gewoon rond te rennen met alle Guards achter je aan, dus besluit ik dat de Guards steeds sneller gaan rennen des te langer ze je achtervolgen.
+Hierdoor is het veel leuker om "stealthy" te zijn en veel moeilijker om gewoon YOLO rond te rennen terwijl je alles verzameld.
+
+Met de balancing en bug fixes uit de weg, ga ik wat betere assets toevoegen om mooiere stages te maken.
+Ik heb een material asset pack toegevoegd om alles een beetje "sci-fi" te laten lijken. Het zijn materials met goeie normal maps dus het lijkt net alsof het 3d assets zijn, terwijl ik gewoon mijn cubes kan blijven gebruiken.
+
+Ik heb nu meer muziek toegevoegd voor wanneer je wint of verliest.
+
+Ik heb coole particle effects toegevoegd een de Orbs waardoor ze meer uitstaan en niet zomaar verdwijnen wanneer je ze verzameld.
+
+Als laatste heb ik alle branding enzo toegevoegd aan de game.
+Dit concludeert Milestone 5.
+
+
+~~ Tot slot
+Dit spel heb ik hatseflats gemaakt in een paar dagen want ik wil echt snel door deze keuzedelen heen.
+Ik vind deze game goed, maar had ik er nog meer tijd in gestoken had ik heb echt wel veel beter kunnen maken.
