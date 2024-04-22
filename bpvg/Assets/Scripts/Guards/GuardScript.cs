@@ -1,5 +1,4 @@
 using Jake.Guards.States.Patrol;
-using Jake.Player;
 using Jake.System;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,16 +7,19 @@ namespace Jake.Guards
 {
     public class GuardScript : HaltableBehavior
     { 
-        [Header("AI")]
+        [Header("~ AI")]
         public NavMeshAgent NavMeshAgent;
         [Range(0, 100)] public float Awareness;
         public LayerMask VisionLayerMask;
         
-        [Header("Animation")]
+        [Header("~ Animation")]
         public Animation Animation;
         public string IdleAnim;
         public string WalkAnim;
         public string RunAnim;
+
+        [Header("~ Sound")] 
+        public CharacterScript Character;
 
         // State Machine
         public GuardState CurrentState { get; private set; }
@@ -37,6 +39,7 @@ namespace Jake.Guards
         public override void Halted()
         {
             NavMeshAgent.isStopped = true;
+            NavMeshAgent.velocity = Vector3.zero;
             Animation.CrossFade(IdleAnim);
         }
 

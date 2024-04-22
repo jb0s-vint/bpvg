@@ -1,5 +1,5 @@
 using UnityEngine;
-using Jake.Player;
+using Jake.System;
 using Jake.Guards.States.Investigating;
 using Jake.Guards.States.Patrol;
 

@@ -35,6 +35,9 @@ namespace Jake.Guards.States.Investigating
             
             // Look in the direction we heard the noise from
             _guard.transform.LookAt(_location);
+            
+            // Play question effect
+            _guard.Character.Question();
         }
 
         public override void OnExited()

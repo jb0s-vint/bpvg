@@ -1,7 +1,7 @@
 using Jake.System;
 using UnityEngine;
 
-namespace Jake.Player
+namespace Jake.System
 {
     public class ThirdPersonCamScript : HaltableBehavior
     {

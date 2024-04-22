@@ -19,14 +19,27 @@ namespace Jake.System
         private int _orbsCollected;
         private int _numOfOrbs;
 
-        [Header("Components")] 
+        [Header("~ Components")] 
         [SerializeField] private InGameUI _inGameUI;
+        public MusicManager MusicManager;
+
+        [Header("~ Music")] 
+        [SerializeField] private AudioClip _ingameMusic;
+        [SerializeField] private AudioClip _victoryMusic;
+        [SerializeField] private AudioClip _defeatMusic;
         
-        [Header("Debug! No touchy!")] 
+        [Header("~ Debug! No touchy!")] 
         [SerializeField] private Stage _defaultStage;
 
         private void Awake()
         {
+            // Is there already a GameManager?
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
@@ -48,6 +61,9 @@ namespace Jake.System
             // Initialize InGameUI
             _inGameUI.HideGameOverPopup();
             _inGameUI.SetOrbCount(0, _numOfOrbs);
+            
+            // Begin playing music
+            MusicManager.PlayLoop(_ingameMusic);
         }
         
         /// <summary>
@@ -85,10 +101,18 @@ namespace Jake.System
             else IncreaseGuardAwareness(10.0f);
         }
 
+        /// <summary>
+        /// Ends the game with a win or lose condition.
+        /// </summary>
+        /// <param name="won">Did the player win the game?</param>
         public void EndGame(bool won)
         {
             string text = won ? "WON" : "LOST";
             _inGameUI.DisplayGameOverPopup(text);
+            
+            // Begin playing win/loss music
+            if(won) MusicManager.PlayLoop(_victoryMusic);
+            else MusicManager.PlayOneShot(_defeatMusic);
             
             // Halt everything
             foreach (var haltable in FindObjectsOfType<HaltableBehavior>())

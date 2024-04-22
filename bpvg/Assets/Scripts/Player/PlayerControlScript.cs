@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Jake.Player
+namespace Jake.System
 {
     public class PlayerControlScript : HaltableBehavior
     {
@@ -18,7 +18,7 @@ namespace Jake.Player
         [SerializeField] private string _runAnimation;
 
         // Movement constants
-        private const float WALK_SPEED = 1.0f;
+        private const float WALK_SPEED = 3.5f;
         private const float RUN_SPEED = 6.0f;
         
         // Runtime variables

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Stage2
   m_EditorClassIdentifier: 
   Name: Cubes
-  _prefab: {fileID: 7520440928549468188, guid: 4649a27ec007b374da196dd4f97dc92b, type: 3}
+  _prefab: {fileID: 7520440928549468188, guid: 524a47fd9b824e54293fa11c58392eca, type: 3}
