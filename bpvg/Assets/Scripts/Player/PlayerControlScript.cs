@@ -23,6 +23,7 @@ namespace Jake.Player
         
         // Runtime variables
         private Vector3 _velocity;
+        public bool IsSprinting { get; private set; }
 
         public override void UnhaltedUpdate()
         {
@@ -40,19 +41,28 @@ namespace Jake.Player
                 // Move forward
                 _movement.Move(_character.forward * (speed * Time.deltaTime));
                 
+                // Update flags
+                IsSprinting = speed > WALK_SPEED;
+                
                 // Set animation
-                _animation.CrossFade(speed > WALK_SPEED ? _runAnimation : _walkAnimation);
+                _animation.CrossFade(IsSprinting ? _runAnimation : _walkAnimation);
                 return;
             }
             
             // Set animation
             _animation.CrossFade(_idleAnimation);
+            
+            // Update flags
+            IsSprinting = false;
         }
 
         public override void Halted()
         {
             // Switch to Idle animation
             _animation.CrossFade(_idleAnimation);
+            
+            // Update flags
+            IsSprinting = false;
             
             // Disable movement
             _movement.isStopped = true;
